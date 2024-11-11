@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Food Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        /* Navbar Section */
+        .navbar {
+            background: linear-gradient(90deg, #ff6f61, #ffcc00);
+            padding: 15px;
+            text-align: center;
+            color: white;
+            font-size: 2em;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .navbar img {
+            width: 50px;
+            height: 50px;
+            vertical-align: middle;
+        }
+        .navbar a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Middle Section */
+        .middle-section {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: #fff;
+        }
+        .left-section, .right-section {
+            width: 48%;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .left-section {
+            background-image: url('https://th.bing.com/th/id/OIP.JKO55nXRC6ZEShhrteTb5QHaFS?w=203&h=145&c=7&r=0&o=5&dpr=1.5&pid=1.7');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        .right-section {
+            background-image: url('https://guidetoiceland.imgix.net/341714/x/0/halfdan-burro-mikael-axelsson-20161126-211-hires-jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #f51313;
+            font-size: 2.5em;
+        }
+        .food-actions, .restaurant-actions {
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .food-actions ul, .restaurant-actions ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .food-actions li, .restaurant-actions li {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #27ae60;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 1.2em;
+            cursor: pointer;
+            color: white;
+            transition: 0.3s;
+        }
+        .food-actions li:hover, .restaurant-actions li:hover {
+            background-color: #2ecc71;
+            transform: scale(1.05);
+        }
+        table {
+            width: 85%;
+            color: #27ae60;
+            border: 2px solid hotpink;
+            border-collapse: collapse;
+            margin: 20px ;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        td, th {
+            border: 1px solid hotpink;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* Button */
+        button {
+            border: 1px solid rebeccapurple;
+            border-radius: 15px;
+            width: fit-content;
+            height: 25px;
+            cursor: pointer;
+            margin: 10px 0;
+            background-color: #ff6f61;
+            color: white;
+            font-size: 1.1em;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #ffcc00;
+            transform: scale(1.1);
+        }
+
+        /* Footer Section */
+        footer {
+            background: linear-gradient(90deg, #ffcc00, #ff6f61);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            font-size: 1.2em;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+        }
+        footer p {
+            margin: 0;
+        }
+        footer a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.1em;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar Section -->
+    <div class="navbar">
+        <img src="https://th.bing.com/th/id/OIP.PenEh3JOQrNO_cVVXupAFwHaH5?pid=ImgDet&w=179&h=190&c=7&dpr=1.5" alt="Logo">
+        My Food Application
+        <a href="/home/">Home</a>
+        <a href="/about/">About</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <!-- Middle Section -->
+    <div class="middle-section">
+        <!-- Left Section for Food -->
+        <div class="left-section">
+            <h2>Food Management</h2>
+            <div class="food-actions">
+                <ul>
+                    <a href="/displayFItems/"><li>Display All Food Items</li></a>
+                    <a href="/getFood/"><li>Get Food</li></a>
+                    <a href="/insertFData/"><li>Insert/Add Food</li></a>
+                    <a href="/delateFdata/"><li>Delete Food Item</li></a>
+                   <a href="/uFData/"> <li>Update Food Details</li></a>
+                </ul>
+                <table><h1 style="color: rgb(34, 52, 255);">Most Delisias Food Item </h1>
+                    <tr>
+                        <th>FOOD ID</th>
+                        <th>FOOD NAME</th>
+                        <th>FOOD PRICE</th>
+                    </tr>
+                    {% for i in fdetails %}
+                    <tr class="food{{ forloop.counter }}">
+                        <td>{{i.foodId}}</td>
+                        <td>{{i.foodName}}</td>
+                        <td>{{i.foodPrice}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+
+        <!-- Right Section for Restaurant -->
+        <div class="right-section">
+            <h2>Restaurant Management</h2>
+            <div class="restaurant-actions">
+                <ul>
+                    <a href="/displayAllRestarents/"><li>Display All Restaurants</li></a>
+                    <a href="/findRestarent/"><li>Find Restaurant</li></a>
+                   <a href="/rinput/"><li>Insert New Restaurant Record</li></a>
+                   <a href="/delateRData/"> <li>Delete Restaurant Record</li></a>
+                    <a href="/uRData/"><li>Update Restaurant Details</li></a>
+                </ul>
+                <table><h1 style="color: rgb(32, 71, 249);">Top One Restarent</h1>
+                    <tr>
+                        <th>Restaurant ID</th>
+                        <th>Restaurant Name</th>
+                        <th>Location</th>
+                    </tr>
+                    {% for i in rdetails %}
+            <tr>
+                <td>{{ i.restarentId }}</td>
+                <td>{{ i.restarentName }}</td>
+                <td>{{ i.restarentLocation }}</td>
+            </tr>
+            {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>Food Application - Indian Vegetarian Foods</p>
+        <a href="#">Policy</a>
+        <a href="#">Service</a>
+    </footer>
+
+</body>
+</html>

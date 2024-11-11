@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colorful Food Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 20px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color: white;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #333;
+            color: white;
+            font-weight: bold;
+        }
+
+        .food1 {
+            background-image: url('https://th.bing.com/th?id=OIP.ljto5d4DuYQJwLYgdxjY0AHaE7&w=306&h=204&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .food2 {
+            background-image: url('https://th.bing.com/th?id=OIP.aL1epPgXIgC-TbgMEJRGmwHaFS&w=295&h=211&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .food3 {
+            background-image: url('https://th.bing.com/th/id/OIP.7Q9k3O-kb-riOnwuPKaZdQHaEK?w=268&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .food4 {
+            background-image: url('https://th.bing.com/th/id/OIP.Ax2UlXWuaxJRY1MdF5uA3gHaE-?w=292&h=195&c=7&r=0&o=5&dpr=1.5&pid=1.7');
+            background-size: cover;
+            background-position: center;
+        }
+
+        td {
+            color: white;
+            text-shadow: 1px 1px 2px #000;
+        }
+
+        .food1 td, .food2 td, .food3 td, .food4 td {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+    </style>
+</head>
+<body>
+
+    <form action="/diplayAllItems/" method="GET">
+        {% csrf_token %}
+        <button type="submit">GET FOOD ITEMS</button>
+    </form>
+
+    <table>
+        <tr>
+            <th>foodId</th>
+            <th>foodName</th>
+            <th>foodPrice</th>
+        </tr>
+        {% for i in allItems %}
+        <tr class="food{{ forloop.counter }}">
+            <td>{{i.foodId}}</td>
+            <td>{{i.foodName}}</td>
+            <td>{{i.foodPrice}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>

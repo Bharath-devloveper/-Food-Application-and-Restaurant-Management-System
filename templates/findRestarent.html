@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Search</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            color: #4921e9;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 250px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4187ef;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ce7328;
+        }
+
+        table {
+            width: 80%;
+            margin: auto;
+            border-collapse: collapse;
+            border: 1px solid #3623ff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #b5ecb7;
+            font-size: 18px;
+        }
+
+        th {
+            background-color: #00eaff;
+            color: white;
+        }
+
+        td {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover td {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    
+    <form action="" method="GET">
+        {% csrf_token %}
+        <h1>Search Restaurants</h1>
+        <label for="rloc">Enter Restaurant Location:</label>
+        <input type="text" id="rloc" name="rloc" placeholder="Location...">
+        <button type="submit">Get All Restaurants</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Restaurant ID</th>
+                <th>Restaurant Name</th>
+                <th>Restaurant Location</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                {% for i in rDetails %}
+                <td>{{ i.restarentId }}</td>
+                <td>{{ i.restarentName }}</td>
+                <td>{{ i.restarentLocation }}</td>
+                {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>

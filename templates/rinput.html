@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insert Restaurant Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0 20px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+            color: #333;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus {
+            border-color: #4CAF50;
+            outline: none;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #i {
+            display: none;
+        }
+
+        /* Styling the message display */
+        .message {
+            text-align: center;
+            color: #d9534f; /* Error or warning color */
+            font-weight: bold;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <form action="/insertRRecords/" method="POST">
+        {% csrf_token %}
+        <h1>Enter Restaurant Details</h1>
+        <label for="restarentidno">Restaurant ID:</label>
+        <input type="number" id="restarentidno" name="restarentidno" placeholder="Enter Restaurant ID">
+        
+        <label for="restarentname">Restaurant Name:</label>
+        <input type="text" id="restarentname" name="restarentname" placeholder="Enter Restaurant Name">
+        
+        <label for="restarentlocation">Restaurant Location:</label>
+        <input type="text" id="restarentlocation" name="restarentlocation" placeholder="Enter Restaurant Location">
+        
+        <button type="submit">Insert Data</button>
+        <div class="message">{{message}}</div>
+    </form>
+</body>
+</html>

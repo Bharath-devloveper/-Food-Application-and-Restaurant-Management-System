@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Details</title>
+    <style>
+        body {
+            background-image: url('https://food.fnr.sndimg.com/content/dam/images/food/fullset/2015/12/1/1/FN_south-florida-al-fresco-restaurants-guide-la-mar-terrace_s4x3.jpg.rend.hgtvcom.616.462.suffix/1449028764537.jpeg'); /* Add the actual image URL */
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+           
+        }
+        h1 {
+            text-align: center;
+            color: rgb(220, 24, 24);
+        }
+        form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        button {
+            border: 1px solid rebeccapurple;
+            border-radius: 15px;
+            width: fit-content;
+            height: 25px;
+            background-color: hotpink;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 5px 15px;
+        }
+        button:hover {
+            background-color: rebeccapurple;
+        }
+        table {
+            border: 2px solid hotpink;
+            width: 60%;
+            margin: auto;
+            border-collapse: collapse;
+            background-color: white;
+           
+        }
+        th, td {
+            border: 1px solid hotpink;
+            padding: 10px;
+            text-align: center;
+            font-size: 16px;
+        }
+        th {
+            background-color: rebeccapurple;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <form action="./displayAll.html">
+            {% csrf_token %}
+            <h1>ALL RESTAURANT DETAILS</h1>
+            <button type="submit">SHOW</button>
+        </form>
+        
+        <table>
+            <tr>
+                <th>Restaurant ID</th>
+                <th>Restaurant Name</th>
+                <th>Restaurant Location</th>
+                <th>Operation</th>
+            </tr>
+            
+            {% for i in alldetails %}
+            <tr>
+                <td>{{ i.restarentId }}</td>
+                <td>{{ i.restarentName }}</td>
+                <td>{{ i.restarentLocation }}</td>
+                <td><a href="/bdelate/{{i.restarentId}}"><button>DELATE</button></a></td>
+                <td><a href="bupdate.html/{{i.restarentId}}"><button>UPDATE</button></a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
